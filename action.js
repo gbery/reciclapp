@@ -1,25 +1,32 @@
 var correo = "";
 
+function loadPage(href){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", href, false);
+    xmlhttp.send();
+    return xmlhttp.responseText;
+}
+
 function validar() {
 
-   var usuario= "";
+    var usuario= "";
 
-   correo = document.getElementById("correo_val").value;
+    correo = document.getElementById("correo_val").value;
 
-   if(correo=="omar@gmail.com"){
-       usuario+= "<a class= 'ingresar_button' href='mapaT.html'>"+
-       "<input class='w-100 ingresar_button' type='button' value='Ingresar'>"+
-       "<a>";
-       
-   }
-   else {
-       usuario+= "<a class= 'ingresar_button' href='mapaU.html'>"+
-       "<input class='w-100 ingresar_button' type='button' value='Ingresar'>"+
-       "<a>";        
-   }
+    console.log(correo);
+
+    
+
+    if(correo=="omar@gmail.com"){
+        console.log(usuario);
+        loadPage('mapaT.html');
+    }
+    else {
+        loadPage('mapaU.html');     
+    }
 
 
-   document.getElementById("result").innerHTML=usuario
-   
+    document.getElementById("result").innerHTML=usuario
+    
 
 }
